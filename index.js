@@ -17,8 +17,8 @@ app.use(cookieParser());
 app.use(express.json());
 
 // this is to make the public static file accessible globally, ex. public/css/style.css can be called with css/styles.css
-// app.use("/", express.static(path.join(__dirname, "public")));
-// app.use("/", require("./routes/root"));
+app.use("/", express.static(path.join(__dirname, "public")));
+app.use("/", require("./routes/root"));
 app.use("/auth", require("./routes/authRoutes"));
 app.use("/api", require("./routes/userRoutes"));
 app.use("/api", require("./routes/cropRoutes"));
