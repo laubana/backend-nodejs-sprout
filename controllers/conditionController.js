@@ -62,7 +62,10 @@ const predictCrop = async (req, res) => {
 
     const existingCropEncyclopedias = await CropEncyclopedia.find().lean();
 
-    const existingCropEncyclopedia = existingCropEncyclopedias[0];
+    const existingCropEncyclopedia =
+      existingCropEncyclopedias[
+        Math.floor(Math.random() * existingCropEncyclopedias.length)
+      ];
 
     res.status(200).json({
       cropName: existingCropEncyclopedia.cropName,
